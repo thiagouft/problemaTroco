@@ -5,13 +5,26 @@
 
 Trabalho para obtenção de nota da disciplina de Projeto e analise de Algoritmo
 */
+
+/*Essa função recebe 3 parâmetros que são: um vetor de moedas diponibilizadas pelo usuário o valor do troco a ser calculado
+e o tamanho do vetor que foi lido pelo usuario.
+
+Após receber os dados no parâmetro a função vai fazer uma divisão do valor do troco pela maior moeda diponível para saber a
+quantidade de moedas, depois será adicionados o valor em um contador de moedas, depois é subtraido do valor do troco a quantidadecde de
+moedas usadas assim passando para a próxima moeda menor seguindo o laço de repetição chegando na menor moeda possivel para o troco.
+Ao final o contador de moedas é o resultado esperado*/
 int calculaQuantidadeMoedas(int *vetorMoedas, int valorTroco, int tamanhoVetorMoedas){
     int quantidadeMoedas = 0, i;
 
     for(i = tamanhoVetorMoedas - 1; i >= 0; i--)
 	{
+	    //Divisão para saber a quantidade de moedas no momento
 		int aux_moedas = valorTroco / vetorMoedas[i];
+
+		//Atualização do valor do troco após usar a moeda no momento
 		valorTroco -= aux_moedas * vetorMoedas[i];
+
+		//Contador de moedas
 		quantidadeMoedas += aux_moedas;
 	}
 	return quantidadeMoedas;
@@ -19,6 +32,9 @@ int calculaQuantidadeMoedas(int *vetorMoedas, int valorTroco, int tamanhoVetorMo
 
 int main()
 {
+    //variável vetorMoedas usado para guardar os tipos de moedas
+    //variável valorTroco usado para guardar o valor lido do Troco a ser calculado
+    // variável tamanhoVetorMoedas usado para alocar o vetor com as quantidades de moedas lida pelo usuário
     int tamanhoVetorMoedas, valorTroco, *vetorMoedas,i,j;
 
     printf("-------------------Problema do Troco-------------------\n\nDigite a quantidade de tipos de moedas:\n");
