@@ -21,6 +21,9 @@ int calculaQuantidadeMoedas(int *vetorMoedas, int valorTroco, int tamanhoVetorMo
 	    //Divisão para saber a quantidade de moedas no momento
 		int aux_moedas = valorTroco / vetorMoedas[i];
 
+		if(aux_moedas != 0)
+            printf("%d moeda(s) de %d\n", aux_moedas, vetorMoedas[i]);
+
 		//Atualização do valor do troco após usar a moeda no momento
 		valorTroco -= aux_moedas * vetorMoedas[i];
 
